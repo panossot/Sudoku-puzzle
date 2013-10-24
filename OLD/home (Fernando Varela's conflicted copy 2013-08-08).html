@@ -1,0 +1,118 @@
+<html>
+
+<head>
+	
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script> 
+	<script type="text/javascript" src="http://oauth.googlecode.com/svn/code/javascript/oauth.js"></script>
+	<script type="text/javascript" src="http://oauth.googlecode.com/svn/code/javascript/sha1.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+	<script type = "text/javascript" src = "/js/script.js"></script>
+	<script src="/js/jquery.colorbox-min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <link href="/static/home_style.css" rel="stylesheet">
+   <title>Amigo!</title>
+</head>
+
+	<h1 class={{hour_time}}>Welcome to Amigo</h1>
+  	<button id='login' ><a href="{{ logout_url }}">Log Out</a></button>
+  		<form action="/profile" method="GET">
+		<button id='profile'>Profile</button></form>
+
+        <h3 class ={{hour_time}}>Hi {{ user.email() }}!</h3>
+
+	<body class = {{hour_time}}>
+	    <div id="wrapper"> 
+	    <h3 class = 'sub-title'>It's {{day}} {{hour_time}}</h3>
+	    <p>{{subcats_message}}</p>
+		<div class= 'fun' id="fun"><img src="static/Fun.jpg" alt="Fun" width=200 height=200/>Fun</div>
+		<div class= 'food' id="food"><img src="static/Food.png" alt="Food" width=200 height=200/>Food</div><br>
+		<div class= 'study' id="study"><img src="static/Studying.png" alt="Study" width=200 height=200/>Study</div>
+		<div class= 'relax' id="relax"><img src="static/Sleep.png" alt="Relax" width=200 height=200/>Relax</div>
+		<form action="/" method="GET"><button id='home1'>Home</button></form>
+        <div/>
+        <div class='Cooking'><img src="static/cook.png" width=200 height=200/></div>
+        <div class='Eating-Out'><img src="static/menu.png" width=200 height=200/></div>
+        <div class="row">
+			<div class="col-lg-8"><ul class='container_restaurants'></ul></div>    
+	        <div class="col-lg-4">
+				<div class="sidebar">
+					<div id="map-canvas"></div>
+					<h4>Search <span class="label label-info"></span></h4>
+					<div class="description">
+					Search for a location and click anywhere on the map to get some suggestions from Yelp!
+					</div>
+					<form id="search">
+						<div class="input-group">
+					      <input id="query" type="text" class="form-control" placeholder="Search for a location...">
+					      <span class="input-group-btn">
+					        <button class="btn btn-default" type="submit">Search!</button>
+					      </span>
+					    </div>							
+					</form>
+			    </div>
+			</div>
+		</div>
+       
+
+		<form action="/" method="POST">
+			<input type = "hidden" name="hour_time" value={{hour_time}}></input>
+			<input type = "hidden" name="user" value={{user}}></input>
+			<div class = 'container_fun_subcats'>			
+				{% for fun_subcat in fun %}
+			    <input type="radio" name="fun" value="fun"><b class ="subcats">{{fun_subcat}}</b><br>
+				{% endfor %}				
+				<br>
+				<input type = "submit" name = "yeaah" class= 'submit'>
+			</div>	 
+           <div class='container_food_subcats'>      
+					{% for food_subcat in food %}
+					<input type="radio" name="food" value="food"><b class ="subcats">{{food_subcat}}</b><br>
+					{% endfor %}			   
+				   <br>
+				   <input type = "submit" name = "yeaah" class= 'submit'>
+				</div>
+			</div>
+			<div class = 'container_relax_subcats'>
+				{% for relax_subcat in relax %} 
+				<input type="radio" name="relax" value="relax"><b class ="subcats">{{relax_subcat}}</b><br>
+				{% endfor %}	  
+			  <br>
+			  <input type = "submit" name = "yeaah" class= 'submit'>
+			</div>
+			<div class = 'container_study_subcats'>		   
+				{% for study_subcat in study %}
+				<input type="radio" name="study" value="study"><b class ="subcats">{{study_subcat}}</b><br>
+				{% endfor %}		  
+			  <br>
+			  <input type = "submit" name = "submit" class= 'submit'>
+			</div>
+		  </form>
+			    <div class="searchRecipe">
+					<form id="searchRecipe" class="pull-right">
+				<div class="input-group"  style="width: 300px;">
+			      <input id="queryRecipe" type="text" class="form-control" placeholder="Search...">
+			      <span class="input-group-btn" id="ing">
+			        <button class="btn btn-primary" type="submit">Search!</button>
+			      </span>
+			    </div>							
+			</form>		    
+				<div class="primary">
+		            <div class="container-fluid">
+			            <div class="row">
+				            <div>
+                  <h5 class="main-header">-------Recipes from Yummly!-------</h5>
+					<ul class="recipes">
+					</ul>
+				</div>	
+			</div>
+		</div>
+	</div>
+  </div>
+
+  
+		</form>
+				<p class="copyright">Copyright &copy; Amigo 2013 - All Rights Reserved Developed by Google CSSI Students Fernando Varela, Setareh Lotfi, and Corly Leung AKA The Three Musketeers</p>
+
+	</body>
+</html>
