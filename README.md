@@ -1,4 +1,4 @@
-The Green Thing (UIUC CS 196-25 FA13) (TGT)
+Sudoku - The Green Thing
 ===
 
 This is our project for CS 196-25 (aka Honors Segment for CS-125) at the University of Illinois.
