@@ -2,7 +2,8 @@ import java.io.*;
 
 /*
  * @author Corly
- * @author temandr
+ * @author Henry
+ * @edited temandr
  */
 
 public class SudokuChecker{
