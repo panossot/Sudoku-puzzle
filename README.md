@@ -8,3 +8,7 @@ In this project, we have three basics:
 2) Make the Sudoku puzzle a puzzle that can be solved
 3) Check if the completed puzzle is correct
 
+Instructions to Run:
+==
+
+Open the SudokuGenerator.jar 
